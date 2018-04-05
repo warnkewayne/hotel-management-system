@@ -1,0 +1,34 @@
+/*
+ hotelManagement/styles.css
+ Created: April 4th, 2018
+ Created by Wayne Warnke
+
+ Last Edit: April 4th, 2018
+ Edited by Wayne Warnke
+
+ */
+
+
+ /* STYLES FOR INDEX.PHP */
+.grid-container {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 20%, 60%, 20%;
+}
+
+.grid-item {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+#hotelname-container {
+
+}
+
+#login-container {
+
+}
+
+#footer-container {
+  
+}
+ /* END STYLES - INDEX.PHP */
