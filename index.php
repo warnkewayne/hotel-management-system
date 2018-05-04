@@ -3,7 +3,7 @@
 // Created: April 4th, 2018
 // Created by Wayne Warnke
 //
-// Last Edit: April 4th, 2018
+// Last Edit: May 4th, 2018
 // Edited by Wayne Warnke
 
 
@@ -23,25 +23,34 @@
 // At second button click, the description will be hidden.
 
 
-// TODO: Basic HTML
-// TODO: CSS Grid
+//  Basic HTML
+//  CSS Grid
 // TODO: Login Page
 // TODO: Product Description
-// TODO:
+// TODO: Create Employee Login Form
 
 ?>
 
 <link rel="stylesheet" type="text/css" href="styles.css"/>
 
 <div class="grid-container">
+
   <!-- Hotel Name -->
     <div class="grid-item" id="hotelname-container">
 
     </div><!-- end hotelname-container -->
+
   <!-- Login -->
     <div class="grid-item" id="login-container">
-
+      <form id="loginForm" method="guest-login.php" action="post">
+        <input type="text" name="username" placeholder="Username..."/>
+        <br />
+        <input type="password" name="password" placeholder="Password..."/>
+        <br /><br />
+        <input type="submit" value="Login" />
+      </form>
     </div><!-- end login-container -->
+
   <!-- Footer -->
     <div class="grid-item" id="footer-container">
 

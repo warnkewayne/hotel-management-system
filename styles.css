@@ -3,7 +3,7 @@
  Created: April 4th, 2018
  Created by Wayne Warnke
 
- Last Edit: April 4th, 2018
+ Last Edit: April 9th, 2018
  Edited by Wayne Warnke
 
  */
@@ -12,8 +12,10 @@
  /* STYLES FOR INDEX.PHP */
 .grid-container {
   display: grid;
+  width: 100%;
+  height: 100%;
   grid-template-columns: 100%;
-  grid-template-rows: 20%, 60%, 20%;
+  grid-template-rows: 20% 60% 20%;
 }
 
 .grid-item {
@@ -29,6 +31,14 @@
 }
 
 #footer-container {
-  
+
+}
+
+#loginForm {
+  width: 50%;
+  height: 56%; /* TODO: make this dynamic */
+  border: 2px solid black;
+  padding: 10px 10px 10px 10px;
+  margin: auto;
 }
  /* END STYLES - INDEX.PHP */
