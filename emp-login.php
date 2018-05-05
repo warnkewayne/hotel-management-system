@@ -23,12 +23,9 @@ require 'DB.php';
 $db = new DB();
 
 $username = $_POST['username'];
-$password = $_POST['password'];
-$name = $_POST['name'];
-$position = $_POST['position'];
-$salary = $_POST['salary'];
+$pw = $_POST['password'];
 
-$user = $db->conn->prepare("SELECT * FROM staff WHERE username=?");
+$user = $db->conn->prepare("SELECT name,password,staff_id FROM staff WHERE username=?");
 
   if(!$user) die("Prepare failed: " . $db->conn->error);
 
@@ -40,7 +37,7 @@ $execute = $user->execute();
 
   if(!$execute) die("Execute failed: " . $db->conn->error);
 
-$bResult = $user->bind_result();
+$bResult = $user->bind_result($name, $password, $id);
 
 $user->fetch();
 
@@ -76,6 +73,7 @@ else {
   //Create a Session
   session_start();
   $_SESSION['username'] = $username;
+  $_SESSION['name'] = $name;
   $_SESSION['role'] = 'staff'
   //TODO: Might need to send more Session variables
   //      depending on the DB structure.

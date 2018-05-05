@@ -24,13 +24,11 @@ $db = new DB();
 
 
 $username = $_POST['username'];
-$first_name = $_POST['first_name'];
-$last_name = $_POST['last_name'];
-$password = $_POST['password'];
+$pw = $_POST['password'];
 
 
 //find the user
-$user = $db->conn->prepare("SELECT * FROM guest WHERE username=?"); //TODO: make sure query statement is correct based on the database
+$user = $db->conn->prepare("SELECT first_name,last_name,password,ccid,guest_id FROM guest WHERE username=?"); //TODO: make sure query statement is correct based on the database
 
         if(!$user) die("Prepare failed : " . $db->conn->error);
 
@@ -44,7 +42,7 @@ $execute = $user->execute();
         if(!$execute) die("Execute failed: " . $user->error);
 
 
-$bResult = $user->bind_result(); //TODO: Add variables to all the attributeds the query will produce
+$bResult = $user->bind_result($first_name, $last_name, $password, $ccid, $id);
 
 $user->fetch();
 
@@ -81,7 +79,11 @@ else {
   //Create a Session
   session_start();
   $_SESSION['username'] = $username;
+  $_SESSION['guest_id'] = $id;
   $_SESSION['role'] = 'guest'//TODO variable for user role
+  $_SESSION['CCID'] = $ccid;
+  $_SESSION['firstname'] = $first_name;
+  $_SESSION['lastname'] = $last_name;
   //TODO: Might need to send more Session variables
   //      depending on the DB structure.
 
