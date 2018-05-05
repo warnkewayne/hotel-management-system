@@ -14,6 +14,7 @@
 // This deletes an employee specific to the ID that is given.
 //
 //
+//TODO:startsession();
 
 require 'db.php';
 

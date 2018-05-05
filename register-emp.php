@@ -44,7 +44,7 @@ if(!$id)
 
   //TODO: fill first partheseses with the column titles IN ORDER
   //TODO: fill values partheseses with ?s for every column in the table.
-  $statement = $db->conn->prepare("INSERT INTO employees (salary, position, name, username) VALUES(?,?,?,?)");
+  $statement = $db->conn->prepare("INSERT INTO staff (salary, position, name, username) VALUES(?,?,?,?)");
 
   if(!$statement) die("Prepare failed: " . $db->conn->error);
 
