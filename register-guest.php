@@ -3,8 +3,8 @@
 // Created: May 4th, 2018
 // Created by Wayne Warnke
 //
-// Last Edit: May 4th, 2018
-// Edited by Wayne Warnke
+// Last Edit: May 6th, 2018
+// Edited by Caleb Sarikey
 //
 //
 // This takesthe information posted by signup.php and will
@@ -18,10 +18,9 @@
 require 'DB.php';
 $db = new DB();
 
-
 $username = $_POST['username'];
 
-$user = $db->conn->prepare("SELECT id FROM guest WHERE username=?");
+$user = $db->conn->prepare("SELECT guest_id FROM GUEST WHERE username=?");
 
         if(!$user) die("Prepare failed : " . $db->conn->error);
 
@@ -44,25 +43,24 @@ $user->fetch();
     if(!$id) {
       $user->free_result();
 
-      //TODO: fill first partheseses with the column titles IN ORDER
-      //TODO: fill values partheseses with ?s for every column in the table.
-      $statement = $db->conn->preare("INSERT INTO guests (first_name, last_name, username, password)
+      //filled first partheseses with the column titles in order
+      //filled values partheseses with ?s for every column in the table
+      //  -Caleb
+      $statement = $db->conn->prepare("INSERT INTO GUEST (first_name, last_name, username, password)
                                       VALUES(?,?,?,?)");
 
         if(!$statement) die("Prepare failed: " . $db->conn->error);
 
-        //TODO: new guest variables...
-
+        //new guest variables...
+        //  -Caleb
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
-        $username;
-        $password = $_POST['pw'];
-        $id = $_POST['id'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-      $bind1 = $statement->bind_param()
-      //TODO: Bind param must be filled with the type of variables being
-      // put into the database i.e. first_name is a "s" (string).
-      // example - bind_param("sssss", $first_name, $last_name, $username....)
+      $bind1 = $statement->bind_param("ssss", $first_name, $last_name, $username, $password);
+      //Bind param filled
+      //  -Caleb
 
         if(!$bind1) die("Bind failed: " . $statement->error);
 
@@ -75,7 +73,7 @@ $user->fetch();
       session_start();
       $_SESSION['first_name'] = $first_name;
       $_SESSION['last_name'] = $last_name;
-      $_SESSION['guestID'] = $id;
+      //$_SESSION['guestID'] = $id;
       //TODO: etc......
 
 
