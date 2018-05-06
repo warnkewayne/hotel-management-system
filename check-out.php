@@ -15,7 +15,7 @@ $db = new DB();
 $roomID = $_POST['room_id'];
 $guestFirst = $_POST['first_name'];
 $guestLast = $_POST['last_name'];
-$guestID // Get guest id from select statement
+$guestID; // Get guest id from select statement
 $date = date("y/m/d"); // current date
 
 
