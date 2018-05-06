@@ -3,8 +3,8 @@
 // Created: May 4th, 2018
 // Created by Wayne Warnke
 //
-// Last Edit: May 4th, 2018
-// Edited by Wayne Warnke
+// Last Edit: May 6th, 2018
+// Edited by Caleb Sarikey
 
 
 // Hotel Management System - DB Class
@@ -21,17 +21,19 @@ class DB {
   public $conn;
 
 //constructor for DB connection
-function _construct() {
+function __construct() {
   $server = 'localhost'; //server name
-  $user = 'root'; //user name
-  $pw = ''; // password name
+    $user = 'root'; //user name
+    $pw = ''; // password name
+
   $this->conn = new mysqli(
-    $server, $user, $pw, 'finalDB'
+    $server, $user, $pw, 'final_project'
   );
 
   if($this->conn->connect_error){
     die('connection failed: ' . $this->conn->connect_error);
   }
+   echo "Connected successfully";
 }
 
 
