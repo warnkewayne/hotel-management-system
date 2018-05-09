@@ -1,3 +1,17 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <title>Check-In</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="change-background.js"></script>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+  </head>
+  <body>
+    <div class="title-container">
+      <h1>TCWS Hotels</h1>
+    </div>
+    <div class="background-container">
 <?php
 // hotelManagement/update-housekeep.php
 // Created: May 5th, 2018
@@ -38,3 +52,6 @@ $execute = $statement->execute();
 
 
  ?>
+</div>
+</body>
+</html>
